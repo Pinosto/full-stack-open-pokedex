@@ -25,7 +25,9 @@ module.exports = {
       ],
     "linebreak-style": [
       "error",
-      "unix"
+      "native"
+      // "unix",
+      // "windows"
     ],
     "quotes": [
       "error",
