@@ -39,6 +39,6 @@ jobs:
           heroku_app_name: "pokedex-app-pinosto" #Must be unique in Heroku
           heroku_email: "juho.pinosto@hotmail.com"
           healthcheck: "https://pokedex-app-pinosto.herokuapp.com/health"
-          checkstring: "ok"
+          checkstring: "oke"
           delay: 5
           rollbackonhealthcheckfailed: true
