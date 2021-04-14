@@ -1,12 +1,9 @@
-name: Testing stuff2
+name: Testing stuff
 
 on:
-  pull_request:
-    branches: 
+  push:
+    branches:
       - master
-    types:
-      - opened
-      - synchronize
 
 jobs:
   a_test_job:
@@ -17,10 +14,6 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
-      - name: event
-        env:
-          EVENT: ${{ toJson(github.event) }}
-        run: echo "$EVENT"
       - name: commits
         env:
           COMMITS: ${{ toJson(github.event.commits) }}
