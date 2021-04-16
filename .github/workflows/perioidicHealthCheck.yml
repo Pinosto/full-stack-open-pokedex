@@ -4,15 +4,6 @@ on:
   schedule:
     # * is a special character in YAML so you have to quote this string
     - cron:  '*/10 * * * *'
-  push:
-    branches:
-      - master
-  pull_request:
-    branches: 
-      - master
-    types:
-      - opened
-      - synchronize
 
 jobs:
   perioidic_health_check:
@@ -22,7 +13,7 @@ jobs:
         uses: jtalk/url-health-check-action@v1.5
         with:
           # Check the following URLs one by one sequentially
-          url:  https://pokedex-app-pinosto.herokuapp.com/baddb
+          url:  https://pokedex-app-pinosto.herokuapp.com/
           # Follow redirects, or just report success on 3xx status codes
           follow-redirect: no # Optional, defaults to "no"
           # Fail this action after this many failed attempts
