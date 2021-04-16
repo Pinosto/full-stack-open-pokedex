@@ -53,8 +53,14 @@ jobs:
       - name: slack success notification
         uses: 8398a7/action-slack@v3
         with:
-          status: ${{ job.status }}
-          text: `new version deployed to https://pokedex-app-pinosto.herokuapp.com/ by ${process.env.AS_AUTHOR} ${{ job.status }} in ${process.env.AS_TOOK}`
+          status: custom
+          fields: workflow,job,commit,repo,ref,author,took
+          custom_payload: |
+            {
+              attachments: [{
+                text: `new version deployed to https://pokedex-app-pinosto.herokuapp.com/ by ${process.env.AS_AUTHOR} ${{ job.status }} in ${process.env.AS_TOOK}`,
+              }]
+            } 
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
         if: ${{ github.event_name == 'push' && !contains(join(github.event.commits.*.message, ' '), '#skip') && success()}}
