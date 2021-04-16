@@ -15,7 +15,7 @@ on:
       - synchronize
 
 jobs:
-  perioidic health check:
+  perioidic_health_check:
     runs-on: ubuntu-18.04
     steps:
       - name: Check the deployed service URL
