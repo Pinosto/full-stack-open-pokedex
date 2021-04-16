@@ -14,6 +14,10 @@ app.get('/version', (req, res) => {
   res.send('2') // change this string to ensure a new version deployed
 })
 
+app.get('/baddb', (req, res) => {
+  res.status(500) // for testing workflow schedule
+})
+
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console
   console.log(`server started on port ${PORT}`)
